@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import useUser from '@/hooks/useUser';
 import UserHero from '@/components/users/UserHero';
 import UserBio from '@/components/users/UserBio';
+import PostFeed from '@/components/posts/PostFeed';
 
 const Userview = () => {
   const router = useRouter();
@@ -31,6 +32,7 @@ const Userview = () => {
       />
       <UserHero userId={userId as string} />
       <UserBio userId={userId as string} />
+      <PostFeed userId={userId as string}/>
     </>
   );
 };

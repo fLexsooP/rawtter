@@ -27,7 +27,7 @@ export default async function handler(
     });
 
     if (!user) {
-      throw new Error('User not found');
+      throw new Error('User not found with this id');
     }
 
     let updatedFollowingIds = [...(currentUser.followingIds || [])];

@@ -1,11 +1,12 @@
 import { useRouter } from 'next/router';
 import { useCallback, useMemo } from 'react';
-import { AiOutlineMessage, AiOutlineHeart } from 'react-icons/ai';
+import { AiOutlineMessage, AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { formatDistanceToNowStrict } from 'date-fns';
 
 import useLoginModal from '@/hooks/useLoginModal';
+import useCurrentUser from '@/hooks/useCurrentUser';
+import useLike from '@/hooks/useLike';
 
-import useCurrentUser from '../../hooks/useCurrentUser';
 import Avatar from '../Avatar';
 
 interface PostItemProps {
@@ -18,12 +19,13 @@ const PostItem: React.FC<PostItemProps> = ({ data, userId }) => {
   const loginModal = useLoginModal();
 
   const { data: currentUser } = useCurrentUser();
+  const { hasLiked, toggleLike } = useLike({ postId: data.id, userId });
 
   const goToUser = useCallback(
     (event: any) => {
       event.stopPropagation();
 
-      router.push(`/user/${data.user.id}`);
+      router.push(`/users/${data.user.id}`);
     },
     [router, data.user.id]
   );
@@ -38,9 +40,14 @@ const PostItem: React.FC<PostItemProps> = ({ data, userId }) => {
   const onLike = useCallback(
     (event: any) => {
       event.stopPropagation();
-      loginModal.onOpen();
+
+      if (!currentUser) {
+        return loginModal.onOpen();
+      }
+
+      toggleLike();
     },
-    [loginModal]
+    [loginModal, currentUser, toggleLike]
   );
 
   const createdAt = useMemo(() => {
@@ -49,6 +56,8 @@ const PostItem: React.FC<PostItemProps> = ({ data, userId }) => {
     }
     return formatDistanceToNowStrict(new Date(data.createdAt));
   }, [data?.createdAt]);
+
+  const LikeIcon = hasLiked ? AiFillHeart : AiOutlineHeart;
 
   return (
     <div
@@ -60,6 +69,7 @@ const PostItem: React.FC<PostItemProps> = ({ data, userId }) => {
         cursor-pointer
         hover:bg-neutral-900
         transition
+        caret-transparent
     ">
       <div className="flex flex-row items-start gap-3">
         {/* Post user */}
@@ -123,7 +133,10 @@ const PostItem: React.FC<PostItemProps> = ({ data, userId }) => {
                 transition
                 hover:text-red-500
             ">
-              <AiOutlineHeart />
+              <LikeIcon
+                size={20}
+                color={hasLiked ? '#EF4444' : ''}
+              />
               <p>{data.likedIds.length}</p>
             </div>
           </div>

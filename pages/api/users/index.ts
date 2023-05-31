@@ -19,7 +19,7 @@ export default async function handler(
 
     return res.status(200).json(users);
   } catch (error) {
-    console.error('users api: ' + error);
+    console.error('users api error: ' + error);
     return res.status(400).end();
   }
 }

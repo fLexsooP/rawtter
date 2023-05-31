@@ -33,7 +33,7 @@ export default async function handler(
 
     return res.status(200).json({ ...existingUser, followersCount });
   } catch (error) {
-    console.error('userId error: ' + error);
+    console.error('userId api error: ' + error);
     return res.status(400).end();
   }
 }

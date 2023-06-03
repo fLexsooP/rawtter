@@ -33,9 +33,9 @@ const Button: React.FC<ButtonProps> = ({
         border-2
         caret-transparent
         ${fullWidth ? 'w-full' : 'w-fit'}
-        ${secondary ? 'bg-white' : 'bg-sky-500'}
+        ${secondary ? 'bg-white' : 'bg-fuchsia-600'}
         ${secondary ? 'text-black' : 'text-white'}
-        ${secondary ? 'border-black' : 'border-sky-500'}
+        ${secondary ? 'border-black' : 'border-fuchsia-500'}
         ${large ? 'text-xl' : 'text-md'}
         ${large ? 'px-5' : 'px-4'}
         ${large ? 'py-3' : 'py-2'}

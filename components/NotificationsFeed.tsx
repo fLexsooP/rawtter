@@ -27,7 +27,7 @@ const NotificationsFeed = () => {
           key={notification.id}
           className="flex flex-row items-center p-6 gap-4 border-b-[1px] border-neutral-800">
           <BsTwitter
-            color="white"
+            color="#c74ce6"
             size={32}
           />
           <p className="text-white">{notification.body}</p>

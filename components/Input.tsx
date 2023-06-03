@@ -33,7 +33,7 @@ const Input: React.FC<InputProps> = ({
           rounded-md
           outline-none
           text-white
-          focus:border-sky-500
+          focus:border-fuchsia-500
           focus:border-2
           transition
           disabled:bg-neutral-900

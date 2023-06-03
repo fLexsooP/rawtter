@@ -22,7 +22,7 @@ const SidebarLogo = () => {
     ">
       <BsTwitter
         size={28}
-        color="white"
+        color="#c74ce6"
       />
     </div>
   );

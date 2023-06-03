@@ -115,7 +115,7 @@ const PostItem: React.FC<PostItemProps> = ({ data, userId }) => {
                 gap-2
                 cursor-pointer
                 transition
-                hover:text-sky-500
+                hover:text-fuchsia-500
             ">
               <AiOutlineMessage size={20} />
               <p>{data.comments?.length || 0}</p>

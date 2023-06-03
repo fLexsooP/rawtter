@@ -1,38 +1,82 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Rawtter
 
-## Getting Started
+Rawtter is a Twitter clone built with a modern tech stack, aiming to mimic core Twitter features like making posts, comments, replies, likes, image uploading, and following other users.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- [Table of Contents](#table-of-contents)
+- [Technologies](#technologies)
+- [Features](#features)
+- [ScreenShot](#screenshot)
+- [Installation](#installation)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [License](#license)
+## Technologies
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Rawtter is built with the following technologies:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- [React](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [MongoDB](https://www.mongodb.com/)
+- [Prisma](https://www.prisma.io/)
+- [NextAuth](https://next-auth.js.org/)
+- [Vercel](https://vercel.com/)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Features
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Authentication (Sign Up, Log In, Log Out) using JWT via NextAuth.
+- Create posts.
+- Comment and reply to posts.
+- Like posts.
+- Notifications.
+- Upload images (converted to base64 strings).
+- Follow other users.
+- Profile customization.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Screenshot
+- register and login
+![register](screenshot/register.png)
+![login](screenshot/login.png)
 
-## Learn More
+- pages
+![main page](screenshot/main_page.png)
+![post](screenshot/post.png)
+![notifications](screenshot/notifications.png)
+![bio](screenshot/bio.png)
+![responsive](screenshot/responsive.png)
+## Installation
 
-To learn more about Next.js, take a look at the following resources:
+Before starting, make sure you have Node.js and npm installed on your machine.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone this repository:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+`git clone https://github.com/fLexsooP/rawtter.git`
+`cd Rawtter`
 
-## Deploy on Vercel
+2. Install the dependencies:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`npm install`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. Set up your MongoDB database and get your connection string.
+
+4. Rename the `.env.example` file to `.env` and fill it with your MongoDB connection string and other configuration details.
+
+5. Run the project:
+   `npm run dev`
+
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+## Deployment
+
+This project is deployed on Vercel. The database is hosted on MongoDB Atlas.
+
+## Contributing
+
+Contributions, issues and feature requests are welcome. Feel free to check [issues page](https://github.com/your-username/Rawtter/issues) if you want to contribute.
+
+## License
+
+This project is [MIT](https://choosealicense.com/licenses/mit/) licensed.

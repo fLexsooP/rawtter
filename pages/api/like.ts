@@ -35,6 +35,34 @@ export default async function handler(
     if (req.method === 'POST') {
       // like
       updatedLikedIds.push(currentUser.id);
+
+      try {
+        const post = await prisma.post.findUnique({
+          where: {
+            id: postId,
+          },
+        });
+
+        if (post?.userId) {
+          await prisma.notification.create({
+            data: {
+              body: `${currentUser.name} liked your post`,
+              userId: post.userId,
+            },
+          });
+
+          await prisma.user.update({
+            where: {
+              id: post.userId,
+            },
+            data: {
+              hasNotification: true,
+            },
+          });
+        }
+      } catch (error) {
+        console.log('like api-notification error: ' + error);
+      }
     }
 
     if (req.method === 'DELETE') {

@@ -8,7 +8,7 @@ export default function Home() {
       <Header label="Home" />
       <Form
         placeholder="What's happening?"
-        label="Tweet"
+        label="Post"
       />
       <PostFeed />
     </>

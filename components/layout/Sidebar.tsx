@@ -8,7 +8,7 @@ import useCurrentUser from '@/hooks/useCurrentUser';
 
 import SidebarLogo from './SidebarLogo';
 import SidebarItem from './SidebarItem';
-import SidebarTweetButton from './SidebarTweetButton';
+import SidebarTweetButton from './SidebarPostButton';
 
 const Sidebar = () => {
   const { data: currentUser } = useCurrentUser();
